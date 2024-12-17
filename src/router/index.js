@@ -1,20 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import HeroView from '@/views/HeroView.vue';
-import OurCofee from '@/views/OurCofee.vue';
-import GoodspageFor from '@/views/GoodspageFor.vue';
-import Contacts from '@/views/Contacts.vue'
-import ThankYouPage from '@/views/ThankYouPage.vue';
-
 Vue.use(VueRouter)
 
 const routes = [
-    { path: '/', component: HeroView },
-    { path: '/our-coffee', component: OurCofee },
-    { path: '/goodspage', component: GoodspageFor },
-    { path: '/contacts', component: Contacts },
-    { path: '/thank-you-page', component: ThankYouPage }
+    { path: '/', name: 'HeroView', component: () => import('@/views/HeroView.vue')},
+    { path: '/our-coffee', name: 'OurCofee', component: () => import('@/views/OurCofee.vue')},
+    { path: '/goodspage', name: 'Goodspage', component: () => import('@/views/GoodspageFor.vue')},
+    { path: '/contacts', name: 'Contacts', component: () => import('@/views/Contacts.vue')},
+    { path: '/thank-you-page', name: 'ThankYouPage', component: () => import('@/views/ThankYouPage.vue')}
   ];
 
   const router = new VueRouter({
