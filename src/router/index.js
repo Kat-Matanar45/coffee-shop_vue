@@ -9,7 +9,6 @@ const routes = [
     { path: '/goodspage', name: 'Goodspage', component: () => import('@/views/GoodspageFor.vue')},
     { path: '/contacts', name: 'Contacts', component: () => import('@/views/Contacts.vue')},
     { path: '/thank-you-page', name: 'ThankYouPage', component: () => import('@/views/ThankYouPage.vue')}
-    kzkz
   ];
 
   const router = new VueRouter({
