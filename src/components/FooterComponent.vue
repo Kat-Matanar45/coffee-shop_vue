@@ -9,15 +9,21 @@
                                 <img :src="require(`@/assets/logo/${links[0].img}`)" :alt="links[0].img">
                             </router-link>
                         </li>
-                        <li class="footer__item">
-                            <router-link :to="links[1].link">{{ links[1].text }}</router-link>
-                        </li>
-                        <li class="footer__item">
-                            <router-link :to="links[2].link">{{ links[2].text }}</router-link>
-                        </li>
-                        <li class="footer__item">
-                            <router-link :to="links[3].link">{{ links[3].text }}</router-link>
-                        </li>
+                        <NavItem 
+                        classItem='footer__item' 
+                        :link="links[1].link" 
+                        :text="links[1].text" 
+                        />
+                        <NavItem 
+                        classItem='footer__item' 
+                        :link="links[2].link" 
+                        :text="links[2].text" 
+                        />
+                        <NavItem 
+                        classItem='footer__item' 
+                        :link="links[3].link" 
+                        :text="links[3].text" 
+                        />
                     </ul>
                 </div>
             </div>
@@ -27,32 +33,37 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                links: [
-                    {
-                        id: 0,
-                        img: 'Logo_black.svg',
-                        link: '/'
-                    },
-                    {
-                        id: 1,
-                        text: 'Our coffee',
-                        link: '/our-coffee'
-                    },
-                    {
-                        id: 2,
-                        text: 'For your pleasure',
-                        link: '/goodspage'
-                    },
-                    {
-                        id: 3,
-                        text: 'Contact us',
-                        link: '/contacts'
-                    },
-                ]
-            }
+import NavItem from './NavItem.vue';
+
+export default {
+    components: {
+        NavItem
+    },
+    data() {
+        return {
+            links: [
+                {
+                    id: 0,
+                    img: 'Logo_black.svg',
+                    link: '/'
+                },
+                {
+                    id: 1,
+                    text: 'Our coffee',
+                    link: '/our-coffee'
+                },
+                {
+                    id: 2,
+                    text: 'For your pleasure',
+                    link: '/goodspage'
+                },
+                {
+                    id: 3,
+                    text: 'Contact us',
+                    link: '/contacts'
+                },
+            ]
         }
     }
+}
 </script>
