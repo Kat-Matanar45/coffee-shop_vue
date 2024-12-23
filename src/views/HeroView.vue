@@ -47,9 +47,24 @@
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="best__wrapper">
-                            <BestItemComponent />
-                            <BestItemComponent />
-                            <BestItemComponent />
+                            <BestItemComponent 
+                            classItem = 'best__item'
+                            :name="bestseller[0].name"
+                            :image="bestseller[0].image"
+                            :price="bestseller[0].price"
+                            />
+                            <BestItemComponent 
+                            classItem = 'best__item'
+                            :name="bestseller[1].name"
+                            :image="bestseller[1].image"
+                            :price="bestseller[1].price"
+                            />
+                            <BestItemComponent
+                            classItem = 'best__item' 
+                            :name="bestseller[2].name"
+                            :image="bestseller[2].image"
+                            :price="bestseller[2].price"
+                            />
                         </div>
                     </div>
                 </div>
@@ -70,22 +85,22 @@ export default {
     },
     data() {
         return {
-            products: [
+            bestseller: [
                 {
                     id: 0,
-                    img: 'coffee-1.jpg',
+                    image: 'coffee-1.jpg',
                     name: 'Solimo Coffee Beans 2kg',
                     price: 10.73
                 },
                 {
                     id: 1,
-                    img: 'coffee-2.jpg',
+                    image: 'coffee-2.jpg',
                     name: 'Presto Coffee Beans 1kg',
                     price: 15.99
                 },
                 {
                     id: 2,
-                    img: 'coffee-3.jpg',
+                    image: 'coffee-3.jpg',
                     name: 'AROMISTICO Coffee 1kg',
                     price: 6.99
                 }
