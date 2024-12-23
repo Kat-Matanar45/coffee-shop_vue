@@ -9,7 +9,10 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
-                        <h1 class="title-big">Everything You Love About Coffee</h1>
+                        <HeaderComponent 
+                        :titleHeader="titleHeader" 
+                        />
+
                         <img class="beanslogo" src="@/assets/logo/Beans_logo.svg" alt="Beans logo">
                         <div class="preview__subtitle">We makes every day full of energy and taste</div>
                         <div class="preview__subtitle">Want to try our beans?</div>
@@ -47,24 +50,12 @@
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="best__wrapper">
-                            <BestItemComponent 
-                            classItem = 'best__item'
-                            :name="bestseller[0].name"
-                            :image="bestseller[0].image"
-                            :price="bestseller[0].price"
-                            />
-                            <BestItemComponent 
-                            classItem = 'best__item'
-                            :name="bestseller[1].name"
-                            :image="bestseller[1].image"
-                            :price="bestseller[1].price"
-                            />
-                            <BestItemComponent
-                            classItem = 'best__item' 
-                            :name="bestseller[2].name"
-                            :image="bestseller[2].image"
-                            :price="bestseller[2].price"
-                            />
+                            <BestItemComponent classItem='best__item' :name="bestseller[0].name"
+                                :image="bestseller[0].image" :price="bestseller[0].price" />
+                            <BestItemComponent classItem='best__item' :name="bestseller[1].name"
+                                :image="bestseller[1].image" :price="bestseller[1].price" />
+                            <BestItemComponent classItem='best__item' :name="bestseller[2].name"
+                                :image="bestseller[2].image" :price="bestseller[2].price" />
                         </div>
                     </div>
                 </div>
@@ -77,11 +68,13 @@
 <script>
 import NavBarComponent from '@/components/NavBarComponent.vue';
 import BestItemComponent from '@/components/BestItemComponent.vue';
+import HeaderComponent from '@/components/HeaderComponent.vue';
 
 export default {
     components: {
         NavBarComponent,
-        BestItemComponent
+        BestItemComponent,
+        HeaderComponent
     },
     data() {
         return {
@@ -104,7 +97,8 @@ export default {
                     name: 'AROMISTICO Coffee 1kg',
                     price: 6.99
                 }
-            ]
+            ],
+            titleHeader: 'Everything You Love About Coffee'
         }
     }
 }

@@ -7,7 +7,9 @@
                         <NavBarComponent />
                     </div>
                 </div>
-                <h1 class="title-big">Our Coffee</h1>
+                <HeaderComponent 
+                :titleHeader="titleHeader"
+                />
             </div>
         </div>
         <section class="shop">
@@ -108,11 +110,13 @@
 <script>
 import NavBarComponent from '@/components/NavBarComponent.vue';
 import BestItemComponent from '@/components/BestItemComponent.vue';
+import HeaderComponent from '@/components/HeaderComponent.vue';
 
 export default {
     components: {
         NavBarComponent,
-        BestItemComponent
+        BestItemComponent,
+        HeaderComponent
     },
     data() {
         return {
@@ -159,7 +163,8 @@ export default {
                     country: 'Brazil',
                     price: 10.73
                 }
-            ]
+            ],
+            titleHeader: 'Our Coffee'
         }
     }
 }
