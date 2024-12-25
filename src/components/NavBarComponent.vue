@@ -2,12 +2,6 @@
     <header>
         <ul class="header d-flex justify-content-center justify-content-md-start flex-wrap">
 
-            <!-- <li class="header__item">
-                <router-link :to="links.header.link">
-                    <img :src="require(`@/assets/logo/${links.header.icon}`)" :alt="links.header.icon">
-                </router-link>
-            </li> -->
-
             <nav-item 
             :link='links.header.link'
             classItem="header__item"
@@ -29,6 +23,7 @@
 
 <script>
 import NavItem from './NavItem.vue';
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
     components: {
@@ -38,23 +33,23 @@ export default {
         return {
             links: {
                 header: {
-                    id: 0,
+                    id: uuidv4(),
                     link: '/',
                     icon: 'Logo.svg'
                 },
                 other: [
                 {
-                    id: 1,
+                    id: uuidv4(),
                     text: 'Our coffee',
                     link: '/our-coffee'
                 },
                 {
-                    id: 2,
+                    id: uuidv4(),
                     text: 'For your pleasure',
                     link: '/goodspage'
                 },
                 {
-                    id: 3,
+                    id: uuidv4(),
                     text: 'Contact us',
                     link: '/contacts'
                 }
