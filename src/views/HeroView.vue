@@ -76,6 +76,7 @@ import NavBarComponent from '@/components/NavBarComponent.vue';
 import BestItemComponent from '@/components/BestItemComponent.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import { v4 as uuidv4 } from 'uuid';
+import { scrollIntoView } from "seamless-scroll-polyfill";
 
 export default {
     components: {
@@ -110,10 +111,10 @@ export default {
     },
     methods: {
         smoothScroll() {
-            this.$refs.ourBest.scrollIntoView({
-                block: 'start',
-                behavior: 'smooth'
-            })
+            scrollIntoView(this.$refs.ourBest, { 
+            behavior: "smooth", 
+            block: "start"
+        });
         }
     }
 }
