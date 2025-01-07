@@ -7,9 +7,9 @@
 
                         <NavItem
                         classItem="footer__item"
-                        :link="links.header.link"
+                        :link="links.footer.link"
                         >
-                            <img :src="require(`@/assets/logo/${links.header.img}`)" :alt="links.header.img">
+                            <img :src="require(`@/assets/logo/${links.footer.img}`)" :alt="links.footer.img">
                         </NavItem>
 
                         <NavItem 
@@ -29,39 +29,14 @@
 
 <script>
 import NavItem from './NavItem.vue';
-import { v4 as uuidv4 } from 'uuid';
 
 export default {
     components: {
         NavItem
     },
-    data() {
-        return {
-            links: {
-                header:
-                {
-                    id: uuidv4(),
-                    img: 'Logo_black.svg',
-                    link: '/'
-                },
-                other: [
-                    {
-                        id: uuidv4(),
-                        text: 'Our coffee',
-                        link: '/our-coffee'
-                    },
-                    {
-                        id: uuidv4(),
-                        text: 'For your pleasure',
-                        link: '/goodspage'
-                    },
-                    {
-                        id: uuidv4(),
-                        text: 'Contact us',
-                        link: '/contacts'
-                    },
-                ]
-            }
+    computed: {
+        links() {
+            return this.$store.getters['getFooterLinks']
         }
     }
 }
