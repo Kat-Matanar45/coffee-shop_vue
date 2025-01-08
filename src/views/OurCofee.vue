@@ -78,7 +78,6 @@
 import NavBarComponent from '@/components/NavBarComponent.vue';
 import BestItemComponent from '@/components/BestItemComponent.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
-import { v4 as uuidv4 } from 'uuid';
 
 export default {
     components: {
@@ -86,54 +85,13 @@ export default {
         BestItemComponent,
         HeaderComponent
     },
-    data() {
-        return {
-            products: [
-                {
-                    id: uuidv4(),
-                    image: 'coffee-3.jpg',
-                    name: 'Solimo Coffee Beans 2kg',
-                    country: 'Brazil',
-                    price: 10.73
-                },
-                {
-                    id: uuidv4(),
-                    image: 'coffee-3.jpg',
-                    name: 'Presto Coffee Beans 1kg',
-                    country: 'Brazil',
-                    price: 15.99
-                },
-                {
-                    id: uuidv4(),
-                    image: 'coffee-3.jpg',
-                    name: 'AROMISTICO Coffee 1kg',
-                    country: 'Brazil',
-                    price: 6.99
-                },
-                {
-                    id: uuidv4(),
-                    image: 'coffee-3.jpg',
-                    name: 'Solimo Coffee Beans 2kg',
-                    country: 'Brazil',
-                    price: 10.73
-                },
-                {
-                    id: uuidv4(),
-                    image: 'coffee-3.jpg',
-                    name: 'Solimo Coffee Beans 2kg',
-                    country: 'Brazil',
-                    price: 10.73
-                },
-                {
-                    id: uuidv4(),
-                    image: 'coffee-3.jpg',
-                    name: 'Solimo Coffee Beans 2kg',
-                    country: 'Brazil',
-                    price: 10.73
-                }
-            ],
-            titleHeader: 'Our Coffee'
+    computed: {
+        products() {
+            return this.$store.getters['getOurCoffee']
         }
+    },
+    data() {
+        return {titleHeader: 'Our Coffee'}
     }
 }
 
