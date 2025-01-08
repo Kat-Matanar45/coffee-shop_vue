@@ -48,7 +48,7 @@ const goodspage = {
   },
   getters: {
     getGoodProducts(state) {
-      return {products: state.products}
+      return state.products
     }
   }
 }
