@@ -9,7 +9,8 @@ const routes = [
     { path: '/goodspage', name: 'Goodspage', component: () => import('@/views/GoodspageFor.vue')},
     { path: '/contacts', name: 'Contacts', component: () => import('@/views/Contacts.vue')},
     { path: '/thank-you-page', name: 'ThankYouPage', component: () => import('@/views/ThankYouPage.vue')},
-    { path: '/our-coffee/item-page', name: 'Itempage', component: () => import('@/views/Itempage.vue')}
+    { path: '/our-coffee/item-page', name: 'OurItempage', component: () => import('@/views/Itempage.vue')},
+    { path: '/goodspage/item-page', name: 'GoodsItempage', component: () => import('@/views/Itempage.vue')}
   ];
 
   const router = new VueRouter({

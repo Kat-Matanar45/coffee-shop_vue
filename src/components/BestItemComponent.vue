@@ -23,7 +23,7 @@
         },
         methods: {
             onEmmit(id) {
-                console.log(id)
+                this.$emit('onNavigate', id)
             }
         }
     }

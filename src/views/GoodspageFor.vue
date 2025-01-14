@@ -42,8 +42,8 @@
                             v-for="coffee in products" 
                             :key="coffee.id"
                             classItem = 'shop__item'
-
                             :coffee="coffee"
+                            @onNavigate="navigate"
                             />
                         </div>
                     </div>
@@ -72,6 +72,11 @@ export default {
     data() {
         return {
             titleHeader: 'For your pleasure'
+        }
+    },
+    methods: {
+        navigate(id) {
+            this.$router.push({name: 'GoodsItempage'})
         }
     }
 }

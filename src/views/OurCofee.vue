@@ -62,6 +62,7 @@
                             :key="coffee.id"
                             classItem = 'shop__item' 
                             :coffee="coffee"
+                            @onNavigate="navigate"
                             />
 
                             <!-- /our-coffee/item-page -->
@@ -92,6 +93,11 @@ export default {
     },
     data() {
         return {titleHeader: 'Our Coffee'}
+    },
+    methods: {
+        navigate(id) {
+            this.$router.push({name: 'OurItempage'})
+        }
     }
 }
 
