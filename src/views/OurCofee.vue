@@ -61,11 +61,11 @@
                             v-for="coffee in products"
                             :key="coffee.id"
                             classItem = 'shop__item' 
-                            :name="coffee.name"
-                            :image="coffee.image"
-                            :price="coffee.price"
-                            :country="coffee.country"
+                            :coffee="coffee"
                             />
+
+                            <!-- /our-coffee/item-page -->
+
                         </div>
                     </div>
                 </div>

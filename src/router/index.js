@@ -8,7 +8,8 @@ const routes = [
     { path: '/our-coffee', name: 'OurCofee', component: () => import('@/views/OurCofee.vue')},
     { path: '/goodspage', name: 'Goodspage', component: () => import('@/views/GoodspageFor.vue')},
     { path: '/contacts', name: 'Contacts', component: () => import('@/views/Contacts.vue')},
-    { path: '/thank-you-page', name: 'ThankYouPage', component: () => import('@/views/ThankYouPage.vue')}
+    { path: '/thank-you-page', name: 'ThankYouPage', component: () => import('@/views/ThankYouPage.vue')},
+    { path: '/our-coffee/item-page', name: 'Itempage', component: () => import('@/views/Itempage.vue')}
   ];
 
   const router = new VueRouter({

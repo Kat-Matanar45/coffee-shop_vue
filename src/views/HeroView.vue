@@ -58,9 +58,7 @@
                             v-for="coffee in bestseller"
                             :key="coffee.id"
                             classItem='best__item' 
-                            :name="coffee.name"
-                            :image="coffee.image" 
-                            :price="coffee.price" 
+                            :coffee="coffee"
                             />
                         </div>
                     </div>
