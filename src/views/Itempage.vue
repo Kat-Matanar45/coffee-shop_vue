@@ -15,7 +15,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 offset-1">
-                        <img class="shop__girl" src="@/assets/img/coffee_item.jpg" alt="coffee_item">
+                        <img class="shop__girl" :src="require(`@/assets/img/${coffee.image}`)" alt="coffee_item">
                     </div>
                     <div class="col-lg-4">
                         <div class="title">About it</div>
