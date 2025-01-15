@@ -65,8 +65,6 @@
                             @onNavigate="navigate"
                             />
 
-                            <!-- /our-coffee/item-page -->
-
                         </div>
                     </div>
                 </div>

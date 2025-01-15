@@ -34,7 +34,7 @@
                         </div>
                         <div class="shop__point">
                             <span>Price:</span>
-                            <span class="shop__point-price">{{ coffee.price }}$</span>
+                            <span class="shop__point-price"> {{ coffee.price }}$</span>
                         </div>
                     </div>
                 </div>
