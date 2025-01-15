@@ -96,7 +96,7 @@ export default {
     },
     methods: {
         navigate(id) {
-            this.$router.push({name: 'OurItempage'})
+            this.$router.push({name: 'OurItempage', params: {id: id}})
         }
     }
 }

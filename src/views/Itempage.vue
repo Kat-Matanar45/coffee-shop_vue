@@ -7,7 +7,7 @@
                         <NavBarComponent />
                     </div>
                 </div>
-                <h1 class="title-big">Our Coffee</h1>
+                <h1 class="title-big">{{ coffee.name }}</h1>
             </div>
         </div>
 
@@ -34,7 +34,7 @@
                         </div>
                         <div class="shop__point">
                             <span>Price:</span>
-                            <span class="shop__point-price">16.99$</span>
+                            <span class="shop__point-price">{{ coffee.price }}$</span>
                         </div>
                     </div>
                 </div>
@@ -51,6 +51,11 @@ export default {
     components: {
         NavBarComponent,
         FooterComponent
+    },
+    computed: {
+        coffee() {
+            return this.$store.getters['getCoffeeById'](this.$route.params.id)
+        }
     }
 }
 
