@@ -49,7 +49,12 @@ const goodspage = {
   getters: {
     getGoodProducts(state) {
       return state.products
-    }
+    },
+    getGoodsById(state) {
+      return (id) => {
+          return state.products.find((coffee) => coffee.id === id)
+      }
+  }
   }
 }
 

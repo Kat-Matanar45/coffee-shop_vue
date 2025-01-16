@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div class="banner itempage-banner">
+        <div class="banner" :class="pageName === 'OurItempage' ? 'coffepage-banner' : 'goodspage-banner'">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
@@ -34,7 +34,7 @@
                         </div>
                         <div class="shop__point">
                             <span>Price:</span>
-                            <span class="shop__point-price"> {{ coffee.price }}$</span>
+                            <span class="shop__point-price"> {{ coffee.price | addCurrency }}</span>
                         </div>
                     </div>
                 </div>
@@ -45,16 +45,18 @@
 
 <script>
 import NavBarComponent from '@/components/NavBarComponent.vue';
-import FooterComponent from '@/components/FooterComponent.vue';
 
 export default {
     components: {
-        NavBarComponent,
-        FooterComponent
+        NavBarComponent
     },
     computed: {
+        pageName() {
+            return this.$route.name
+        },
         coffee() {
-            return this.$store.getters['getCoffeeById'](this.$route.params.id)
+        const pageGetter = this.pageName === 'OurItempage' ? 'getCoffeeById' : 'getGoodsById'
+        return this.$store.getters[pageGetter](this.$route.params.id)
         }
     }
 }

@@ -77,6 +77,7 @@
 import NavBarComponent from '@/components/NavBarComponent.vue';
 import BestItemComponent from '@/components/BestItemComponent.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
+import { navigate } from '@/mixins/navigate';
 
 export default {
     components: {
@@ -90,13 +91,11 @@ export default {
         }
     },
     data() {
-        return {titleHeader: 'Our Coffee'}
+        return {
+            name: 'OurItempage',
+            titleHeader: 'Our Coffee'}
     },
-    methods: {
-        navigate(id) {
-            this.$router.push({name: 'OurItempage', params: {id: id}})
-        }
-    }
+    mixins: [navigate]
 }
 
 </script>

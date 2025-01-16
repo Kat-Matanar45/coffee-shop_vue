@@ -8,6 +8,10 @@ import './assets/scss/style.scss';
 
 Vue.config.productionTip = false;
 
+Vue.filter('addCurrency', (value) => {
+  return value + '$'
+})
+
 new Vue({
   store,
   router,

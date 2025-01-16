@@ -5,7 +5,7 @@
             {{ coffee.name }}
         </div>
         <div class="shop__item-country">{{ coffee.country }}</div>
-        <div class="best__item-price">{{coffee.price}}$</div>
+        <div class="best__item-price">{{coffee.price | addCurrency}}</div>
     </div>
 </template>
 
