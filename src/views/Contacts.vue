@@ -7,9 +7,7 @@
                         <NavBarComponent />
                     </div>
                 </div>
-                <HeaderComponent 
-                :titleHeader="titleHeader"
-                />
+                <HeaderComponent :titleHeader="titleHeader" />
             </div>
         </div>
         <section class="contacts">
@@ -28,10 +26,10 @@
                                     </label>
                                 </div>
                                 <div class="col col-12 col-sm-9">
-                                    <input type="text" class="form-control" id="name-input" v-model="form.name">
+                                    <input type="text" class="form-control" id="name-input" v-model="name">
                                 </div>
                             </div>
-
+<pre>v$</pre>
                             <div class="form-group row">
                                 <div class="col col-12 col-sm-3 d-flex align-items-center">
                                     <label for="email-input" class="mb-0">
@@ -40,7 +38,7 @@
                                     </label>
                                 </div>
                                 <div class="col col-12 col-sm-9">
-                                    <input type="email" class="form-control" id="email-input" v-model="form.eMail">
+                                    <input type="email" class="form-control" id="email-input" v-model="eMail">
                                 </div>
                             </div>
 
@@ -51,7 +49,7 @@
                                     </label>
                                 </div>
                                 <div class="col col-12 col-sm-9">
-                                    <input type="tel" class="form-control" id="phone-input" v-model="form.phone">
+                                    <input type="tel" class="form-control" id="phone-input" v-model="phone">
                                 </div>
                             </div>
 
@@ -64,7 +62,7 @@
                                 </div>
                                 <div class="col col-12">
                                     <textarea class="form-control" name="message" id="message" rows="5"
-                                        placeholder="Leave your comments here" v-model="form.text"></textarea>
+                                        placeholder="Leave your comments here" v-model="text"></textarea>
                                 </div>
                             </div>
 
@@ -85,25 +83,37 @@
 import NavBarComponent from '@/components/NavBarComponent.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
 
+import { useVuelidate } from '@vuelidate/core'
+import { required, email } from '@vuelidate/validators'
+
 export default {
     components: {
         NavBarComponent,
         HeaderComponent
     },
+    setup() {
+        return { v$: useVuelidate() }
+    },
     data() {
         return {
-            form: {
-                name: '',
-                eMail: '',
-                phone: '',
-                text: ''
-            },
+            name: '',
+            eMail: '',
+            phone: '',
+            text: '',
             titleHeader: 'Contact us'
+        }
+    },
+    validations() {
+        return {
+            name: { required },
+            phone: {},
+            eMail: { required, email },
+            text: { required }
         }
     },
     methods: {
         submit() {
-            console.log(JSON.stringify(this.form))
+
         }
     }
 }
