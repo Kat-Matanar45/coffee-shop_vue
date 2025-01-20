@@ -1,6 +1,6 @@
 <template>
     <div :class="classItem" @click="onEmmit(coffee.id)">
-        <img :src="require(`@/assets/img/${coffee.image}`)" :alt="coffee.image">
+        <img :src="coffee.image" :alt="coffee.image">
         <div class="best__item-title">
             {{ coffee.name }}
         </div>

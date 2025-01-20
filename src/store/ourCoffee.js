@@ -47,6 +47,16 @@ const ourCoffee = {
             }
         ]
     },
+    mutations: {
+        setCoffeeData(state, data) {
+            state.products = data
+        }
+    },
+    actions: {
+        setCoffeeData({commit}, data) {
+           commit('setCoffeeData', data)
+        }
+    },
     getters: {
         getOurCoffee(state) {
             return state.products
