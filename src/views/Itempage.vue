@@ -52,10 +52,12 @@ export default {
         }
     },
     mounted() {
-        fetch(`http://localhost:3000/coffee/${this.$route.params.id}`)
+        fetch(`http://localhost:3000/${this.pageName === 'OurItempage' ? 'coffee' : 'goods'}/${this.$route.params.id}`)
             .then(res => res.json())
             .then(data => {
-                this.product = data
+                this.product = data;
+                console.log(data);
+                this.$store.dispatch('updateGoods', data)
             })
     },
     destroyed() {
@@ -69,7 +71,7 @@ export default {
             const pageGetter = this.pageName === 'OurItempage' ? 'getCoffeeById' : 'getGoodsById'
             return this.$store.getters[pageGetter](this.$route.params.id)
         }
-    }
+    },
 }
 
 </script>

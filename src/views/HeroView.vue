@@ -98,6 +98,13 @@ export default {
             block: "start"
         });
         }
+    },
+    mounted() {
+        fetch('http://localhost:3000/bestsellers')
+        .then(res => res.json())
+        .then(data => {
+            this.$store.dispatch('setBestselData', data)
+        })
     }
 }
 

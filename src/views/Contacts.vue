@@ -147,9 +147,19 @@ export default {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(message)
-            })
+            });
+
+            this.name = '';
+            this.phone = '';
+            this.eMail = '';
+            this.text = '';
+
+            this.v$.$reset();
+
+            alert('Сообщение отправлено успешно!');
         }
     }
 }
+
 
 </script>

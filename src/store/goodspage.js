@@ -46,6 +46,16 @@ const goodspage = {
       }
     ]
   },
+  mutations: {
+    setGoods(state, data) {
+      state.products = data
+    }
+  },
+  actions: {
+    setGoods ({commit}, data) {
+      commit('setGoods', data)
+    }
+  },
   getters: {
     getGoodProducts(state) {
       return state.products

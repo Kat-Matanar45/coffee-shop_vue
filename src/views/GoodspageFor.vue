@@ -77,7 +77,14 @@ export default {
             titleHeader: 'For your pleasure'
         }
     },
-    mixins: [navigate]
+    mixins: [navigate],
+    mounted() {
+        fetch('http://localhost:3000/goods')
+        .then(res => res.json())
+        .then(data => {
+            this.$store.dispatch('setGoods', data)
+        })
+    }
 }
 
 </script>

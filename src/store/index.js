@@ -5,6 +5,7 @@ import links from './links'
 import goodspage from './goodspage'
 import bestseller from './bestseller'
 import ourCoffee from './ourCoffee'
+import goodsItem from './goodsItem'
 
 Vue.use(Vuex)
 
@@ -13,7 +14,8 @@ const store = new Vuex.Store({
     links,
     goodspage,
     bestseller,
-    ourCoffee
+    ourCoffee,
+    goodsItem
   }
 })
 
