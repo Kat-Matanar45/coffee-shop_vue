@@ -3,13 +3,14 @@ const goodsItem = {
         goodsItem: []
     },
     mutations: {
-        setGoods(state, goods) {
+      updateGoods(state, goods) {
           state.goodsItem = goods;
+          console.log(state.goodsItem)
         }
       },
       actions: {
         updateGoods({ commit }, goods) {
-          commit('setGoods', goods); 
+          commit('updateGoods', goods);
         }
       }
 }

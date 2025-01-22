@@ -56,7 +56,6 @@ export default {
             .then(res => res.json())
             .then(data => {
                 this.product = data;
-                console.log(data);
                 this.$store.dispatch('updateGoods', data)
             })
     },
