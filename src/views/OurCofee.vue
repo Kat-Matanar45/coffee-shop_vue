@@ -39,7 +39,7 @@
                             <label class="shop__search-label" for="filter">Looking for</label>
                             <input id="filter" type="text" placeholder="start typing here..."
                                 class="shop__search-input" 
-                                v-model="searchValue">
+                                @input="onSearch($event)">
                         </form>
                     </div>
                     <div class="col-lg-4">
@@ -79,6 +79,7 @@ import NavBarComponent from '@/components/NavBarComponent.vue';
 import BestItemComponent from '@/components/BestItemComponent.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import { navigate } from '@/mixins/navigate';
+import debounce from 'debounce';
 
 export default {
     components: {
@@ -113,13 +114,15 @@ export default {
         })
     },
     methods: {
+        onSearch: debounce(function(event) {
+            this.onSort(event.target.value)
+        }, 500),
         onSort(value) {
         // this.$store.dispatch('setSortValue', value)
-        fetch(`http://localhost:3000/coffee?q=Brazil`)
+        fetch(`http://localhost:3000/coffee?q=${value}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            // this.$store.dispatch('setCoffeeData', data)
+            this.$store.dispatch('setCoffeeData', data)
         })
     }
     }
