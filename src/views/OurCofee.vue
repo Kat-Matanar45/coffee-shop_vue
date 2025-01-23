@@ -7,9 +7,7 @@
                         <NavBarComponent />
                     </div>
                 </div>
-                <HeaderComponent 
-                :titleHeader="titleHeader"
-                />
+                <HeaderComponent :titleHeader="titleHeader" />
             </div>
         </div>
         <section class="shop">
@@ -37,14 +35,13 @@
                     <div class="col-lg-4 offset-2">
                         <form action="#" class="shop__search">
                             <label class="shop__search-label" for="filter">Looking for</label>
-                            <input id="filter" type="text" placeholder="start typing here..."
-                                class="shop__search-input" 
+                            <input id="filter" type="text" placeholder="start typing here..." class="shop__search-input" ref="searchInput"
                                 @input="onSearch($event)">
                         </form>
                     </div>
                     <div class="col-lg-4">
                         <div class="shop__filter">
-                            <div class="shop__filter-label">
+                            <div class="shop__filter-label" @click="clearFilter('')">
                                 Or filter
                             </div>
                             <div class="shop__filter-group">
@@ -58,13 +55,8 @@
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
-                            <BestItemComponent
-                            v-for="coffee in products"
-                            :key="coffee.id"
-                            classItem = 'shop__item' 
-                            :coffee="coffee"
-                            @onNavigate="navigate"
-                            />
+                            <BestItemComponent v-for="coffee in products" :key="coffee.id" classItem='shop__item'
+                                :coffee="coffee" @onNavigate="navigate" />
 
                         </div>
                     </div>
@@ -103,28 +95,40 @@ export default {
     data() {
         return {
             name: 'OurItempage',
-            titleHeader: 'Our Coffee'}
+            titleHeader: 'Our Coffee'
+        }
     },
     mixins: [navigate],
     mounted() {
         fetch('http://localhost:3000/coffee')
-        .then(res => res.json())
-        .then(data => {
-            this.$store.dispatch('setCoffeeData', data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                this.$store.dispatch('setCoffeeData', data)
+            })
     },
     methods: {
-        onSearch: debounce(function(event) {
+        onSearch: debounce(function (event) {
             this.onSort(event.target.value)
         }, 500),
         onSort(value) {
-        // this.$store.dispatch('setSortValue', value)
-        fetch(`http://localhost:3000/coffee?q=${value}`)
-        .then(res => res.json())
-        .then(data => {
-            this.$store.dispatch('setCoffeeData', data)
-        })
-    }
+            // this.$store.dispatch('setSortValue', value)
+            fetch(`http://localhost:3000/coffee?q=${value}`)
+                .then(res => res.json())
+                .then(data => {
+                    this.$store.dispatch('setCoffeeData', data)
+                })
+        },
+        clearFilter(value) {
+            this.$store.dispatch('setSearchValue', value);
+            this.$store.dispatch('setSortValue', value);
+            this.$refs.searchInput.value = '';
+
+            fetch(`http://localhost:3000/coffee/`)
+                .then(res => res.json())
+                .then(data => {
+                    this.$store.dispatch('setCoffeeData', data)
+                })
+        }
     }
 }
 
