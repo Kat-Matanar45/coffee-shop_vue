@@ -20,11 +20,11 @@
                     <div class="col-lg-4">
                         <div class="title">About it</div>
                         <img class="beanslogo" src="@/assets/logo/Beans_logo_dark.svg" alt="Beans logo">
-                        <div class="shop__point">
+                        <div class="shop__point" v-if="product.country">
                             <span>Country:</span>
                             {{ product.country }}
                         </div>
-                        <div class="shop__point">
+                        <div class="shop__point" v-if="product.description">
                             <span>Description:</span>
                             {{ product.description }}
                         </div>
